@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html <%= raw @app_start %>>
+  <head>
+    <title>ProficiencyTest</title>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="home">
+    <div class="container">
+
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag 'application'%>
+  </body>
+</html>

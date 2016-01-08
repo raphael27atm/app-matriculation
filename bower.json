@@ -1,0 +1,19 @@
+{
+  "name": "Proficiency",
+  "authors": [
+    "Marlon Raphael <raphael27atm@gmail.com>"
+  ],
+  "description": "Proficiency test",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ]
+}

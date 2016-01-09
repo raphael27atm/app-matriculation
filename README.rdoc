@@ -1,28 +1,6 @@
-== README
+== AppCursos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto desenvolvido com Ruby on Rails + AngularJS
 
-Things you may want to cover:
+O projeto pode ser visisualizado em: <a href="https://app-matriculation.herokuapp.com/#/">https://app-matriculation.herokuapp.com/#/</a>
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

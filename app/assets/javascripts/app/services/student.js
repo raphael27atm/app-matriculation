@@ -9,9 +9,9 @@
   function Student($resource, API_KEY) {
 
     var Student = $resource('/api/v1/students/:id' + API_KEY, {},{
-      query: { method: 'GET' },
-      save:   {method:'POST'},
-      update: { method: 'PUT'}
+      'query':  {method:'GET'},
+      'save':   {method:'POST'},
+      'update': { method: 'PUT'}
     });
 
     return Student;

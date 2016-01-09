@@ -1,0 +1,20 @@
+<a class="btn btn-success" ui-sref="classroom-new">Criar Matricula</a>
+</br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Aluno</th>
+      <th>Curso</th>
+      <th>Data Matricula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="classroom in classrooms">
+      <td>{{classroom[0]}}</td>
+      <td>{{classroom[1]}}</td>
+      <td>{{classroom[2]}}</td>
+      <td>{{classroom[3] | date:'dd-MM-yyyy' }}</td>
+    </tr>
+    </tbody>
+</table>

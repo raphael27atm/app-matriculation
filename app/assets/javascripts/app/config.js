@@ -30,9 +30,19 @@
         url: '/courses/new',
         templateUrl: 'courses/new.html',
         controller: 'CourseNewController'
+      })
+      .state('classrooms',{
+        url: '/classrooms/index',
+        templateUrl: 'classrooms/index.html',
+        controller: 'RoomsController'
+      })
+      .state('classroom-new',{
+        url: '/classrooms/new',
+        templateUrl: 'classrooms/new.html',
+        controller: 'RoomNewController'
       });
 
-    //$httpProvider.defaults.headers.common["X-CSRF-Token"] = $("meta[name=csrf-token]").attr("content");
+    $httpProvider.defaults.headers.common["X-CSRF-Token"] = $("meta[name=csrf-token]").attr("content");
     //$httpProvider.interceptors.push('authInterceptor');
     // default fall back route
     $urlRouterProvider.otherwise('/');

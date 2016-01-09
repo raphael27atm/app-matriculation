@@ -1,0 +1,30 @@
+<h3>Nova Matricula</h3>
+<form class="form-horizontal" name="form" ng-submit="save(classroom)">
+  <fieldset>
+    <div class="form-group">
+      <select id="studant"
+        ng-model="classroom.student_id"
+        ng-controller="StudentsController"
+        ng-options="student.id as student.name for student in students"
+        class="form-control" name="student" required>
+        <option value="">Escolha um Estudante</option>
+      </select>
+      <span ng-show="form.student.$error.required">Campo obrigatório.</span>
+    </div>
+    <div class="form-group">
+      <select id="course"
+        ng-model="classroom.course_id"
+         ng-controller="CoursesController"
+         ng-options="course.id as course.name for course in courses"
+        class="form-control" name="course" required>
+        <option value="">Escolha um Curso</option>
+      </select>
+      <span ng-show="form.course.$error.required">Campo obrigatório.</span>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10">
+        <button type="submit" class="btn btn-primary" type="submit" ng-disabled="form.$invalid">Salvar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

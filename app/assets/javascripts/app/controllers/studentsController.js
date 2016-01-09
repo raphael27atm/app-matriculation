@@ -5,9 +5,10 @@
     .controller('StudentsController',StudentsController)
     .controller('StudentNewController',StudentNewController);
 
-  StudentsController.$inject = ['$scope', 'Student'];
+  StudentsController.$inject = ['$scope', 'Student', 'STATUS'];
 
-  function StudentsController($scope, Student){
+  function StudentsController($scope, Student, STATUS){
+    $scope.status = STATUS;
     $scope.students = [];
 
     Student.query(function (data) {
@@ -17,18 +18,19 @@
     });
   }
 
-  StudentNewController.$inject = ['$scope', 'Student','$state'];
+  StudentNewController.$inject = ['$scope', 'Student','$state', 'alert'];
 
-  function StudentNewController($scope, Student, $state){
-    var student = []
+  function StudentNewController($scope, Student, $state, alert){
     $scope.student = new Student();
-    $scope.students = Student.query();
+    $scope.students = [];
     $scope.save = function(student) {
       if ($scope.student.id) {
         Student.update({id: $scope.student.id}, $scope.student);
       } else {
         $scope.student.$save().then(function(response) {
-          $scope.students.push(response);
+          $scope.students.push({response});
+          $state.go('students');
+          alert('success','Aluno adcionado com sucesso');
         });
       }
       $scope.student = new Student();

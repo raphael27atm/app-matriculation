@@ -17,18 +17,19 @@
     });
   }
 
-  CourseNewController.$inject = ['$scope', 'Course','$state'];
+  CourseNewController.$inject = ['$scope', 'Course','$state', 'alert'];
 
-  function CourseNewController($scope, Course, $state){
-    var course = []
-    $scope.course = new Course();
-    $scope.courses = Course.query();
+  function CourseNewController($scope, Course, $state, alert){
+    $scope.course = new Course();;
+    $scope.courses =[];
     $scope.save = function(course) {
       if ($scope.course.id) {
-        Course.update({id: $scope.course.id}, $scope.course);
+        $scope.course.update({id: $scope.course.id}, $scope.course);
       } else {
         $scope.course.$save().then(function(response) {
-          $scope.courses.push(response);
+          $scope.courses.push({response});
+          $state.go('courses');
+          alert('success','Curso adcionado com sucesso');
         });
       }
       $scope.course = new Course();

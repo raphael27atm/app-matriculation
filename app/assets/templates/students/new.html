@@ -1,15 +1,16 @@
 <h3>Novo Aluno</h3>
-<form class="form-horizontal" ng-submit="save(student)">
+<form class="form-horizontal" name="form" ng-submit="save(student)">
   <fieldset>
     <div class="form-group">
       <label for="inputName" class="col-lg-2 control-label">Nome</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" ng-model="student.name" placeholder="Nome">
+        <input type="text" class="form-control" name="name" ng-model="student.name" placeholder="Nome"required>
+        <span ng-show="form.name.$error.required">Nome é Obrigatório.</span>
       </div>
     </div>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Salvar</button>
       </div>
     </div>
   </fieldset>

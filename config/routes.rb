@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :students
       resources :courses
+      resources :classrooms
+      get :matriculation, to: 'classrooms#matriculation'
     end
   end
 

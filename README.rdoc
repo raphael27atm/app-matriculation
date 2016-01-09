@@ -2,5 +2,5 @@
 
 Projeto desenvolvido com Ruby on Rails + AngularJS
 
-O projeto pode ser visisualizado em: <a href="https://app-matriculation.herokuapp.com/#/">https://app-matriculation.herokuapp.com/#/</a>
+O projeto pode ser visisualizado em: https://app-matriculation.herokuapp.com/#/
 

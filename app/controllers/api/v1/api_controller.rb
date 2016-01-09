@@ -45,7 +45,7 @@ module API
 
       def verify_secret_key!
         #check for the secret token
-        if (params[:api_key] != Ouvidoria::Application.config.secret_api_key)
+        if (params[:api_key] != ProficiencyTest::Application.config.secret_api_key)
           render json: { message: "Who are you?" }, status: :unauthorized
         end
         params.delete :api_key

@@ -12123,6 +12123,11 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .ma-top {
   margin-top: 50px;
 }
+
+/* line 8, /home/raphael/projetos/ruby/rails/proficiency-test/app/assets/stylesheets/app.css.scss */
+.label {
+  margin-right: 3px;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

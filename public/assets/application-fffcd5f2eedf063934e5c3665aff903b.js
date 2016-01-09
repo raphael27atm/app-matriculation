@@ -50978,7 +50978,7 @@ angular.module("app")
   angular
     .module('app')
     .factory('Classroom',Classroom)
-    .factory('Matriculation',Matriculation);;
+    .factory('Matriculation',Matriculation);
 
   Classroom.$inject = ['$resource','API_KEY'];
 
@@ -51087,7 +51087,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 // source: app/assets/templates/students/index.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("students/index.html", '<a class="btn btn-success" ui-sref="students-new">Adicionar Aluno</a>\n</br>\n<table class="table">\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Nome</th>\n      <th>Registro</th>\n      <!--<th>Status</th>-->\n    </tr>\n  </thead>\n  <tbody>\n    <tr ng-repeat="student in students">\n      <td>{{student.id}}</td>\n      <td>{{student.name}}</p></td>\n      <td>{{student.register_number}}</td>\n      <!--<td>{{student.status}}</td>-->\n    </tr>\n    </tbody>\n</table>')
+  $templateCache.put("students/index.html", '<a class="btn btn-success" ui-sref="students-new">Adicionar Aluno</a>\n</br>\n<table class="table">\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Nome</th>\n      <th>Registro</th>\n      <th>Cursos Matriculados</th>\n      <!--<th>Status</th>-->\n    </tr>\n  </thead>\n  <tbody>\n    <tr ng-repeat="student in students">\n      <td>{{student.id}}</td>\n      <td>{{student.name}}</p></td>\n      <td>{{student.register_number}}</td>\n      <td><span class="label label-info" ng-repeat="course in student.courses">{{course.name}}</span></p></td>\n      <!--<td>{{student.status}}</td>-->\n    </tr>\n    </tbody>\n</table>')
 }]);
 
 // Angular Rails Template

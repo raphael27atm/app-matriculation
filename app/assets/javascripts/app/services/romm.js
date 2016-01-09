@@ -3,7 +3,7 @@
   angular
     .module('app')
     .factory('Classroom',Classroom)
-    .factory('Matriculation',Matriculation);;
+    .factory('Matriculation',Matriculation);
 
   Classroom.$inject = ['$resource','API_KEY'];
 

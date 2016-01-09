@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :courses
       resources :classrooms
       get :matriculation, to: 'classrooms#matriculation'
+      get :course_for_student, to: 'classrooms#course_for_student'
     end
   end
 

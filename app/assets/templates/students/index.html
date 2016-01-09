@@ -6,6 +6,7 @@
       <th>#</th>
       <th>Nome</th>
       <th>Registro</th>
+      <th>Cursos Matriculados</th>
       <!--<th>Status</th>-->
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <td>{{student.id}}</td>
       <td>{{student.name}}</p></td>
       <td>{{student.register_number}}</td>
+      <td><span class="label label-info" ng-repeat="course in student.courses">{{course.name}}</span></p></td>
       <!--<td>{{student.status}}</td>-->
     </tr>
     </tbody>

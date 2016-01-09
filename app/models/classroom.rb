@@ -6,4 +6,8 @@ class Classroom < ActiveRecord::Base
     self.entry_at = Time.now
   end
 
+  def course_student student
+    self.joins(:student).where(students: {id: student.id}).map{|a| a.course.name}
+  end
+
 end

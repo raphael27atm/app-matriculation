@@ -12,6 +12,8 @@ module API
 
       def show
         render json: resource
+        rescue ActiveRecord::RecordNotFound
+          render json:{ message: "Nada Encontrado" }, status: 404
       end
 
       def create

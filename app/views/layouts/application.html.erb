@@ -5,12 +5,8 @@
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= csrf_meta_tags %>
   </head>
-  <body class="home">
-    <div class="container" ng-cloak>
-
-      <%= yield %>
-    </div>
-
+  <body class="home" ng-cloak>
+    <%= yield %>
     <%= javascript_include_tag 'application'%>
   </body>
 </html>

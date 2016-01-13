@@ -10,11 +10,13 @@
   function Classroom($resource, API_KEY) {
 
     var Classroom = $resource('/api/v1/classrooms/:id' + API_KEY, {},{
-      save:   {method:'POST'},
-      query: { method: 'GET' },
-      update: { method: 'PUT'},
-      matriculation: { method: 'GET', url: '/api/v1/matriculation/:id'+API_KEY, isArray: true }
+      'get':  {method:'GET'},
+      'query':  {method:'GET'},
+      'save':   {method:'POST'},
+      'update': { method: 'PUT'},
+      'delete': {method:'DELETE'}
     });
+
     return Classroom;
   }
 
@@ -23,10 +25,10 @@
   function Matriculation($resource, API_KEY) {
 
     var Matriculation = $resource('/api/v1/matriculation/:id' + API_KEY, {},{
-      save:   {method:'POST'},
-      query: { method: 'GET' },
-      update: { method: 'PUT'}
+      'get':  {method:'GET'},
+      'query':  {method:'GET'}
     });
+
     return Matriculation;
   }
 

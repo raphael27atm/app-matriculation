@@ -6,6 +6,11 @@ module API
         'student'
       end
 
+      def students_courses
+        @classroom = Student.includes(:courses).map(&:courses )
+        render json: @classroom
+      end
+
     end
   end
 end

@@ -1,4 +1,4 @@
-<a class="btn btn-success" ui-sref="courses-new">Adicionar Curso</a>
+<a class="btn btn-success" ui-sref="course-new">Adicionar Curso</a>
 </br>
 <table class="table">
   <thead>
@@ -6,15 +6,20 @@
       <th>#</th>
       <th>Nome</th>
       <th>Descrição</th>
-      <!--<th>Status</th>-->
+      <th>Status</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="course in courses">
-      <td>{{course.id}}</td>
+      <td>{{$index + 1}}</td>
      <td>{{course.name}}</td>
       <td>{{course.description}}</td>
-      <!--<td>{{course.status}}</p></td>-->
+      <td>{{course.status}}</p></td>
+      <td>
+        <a ui-sref="course-show({id: course.id})" class="btn btn-default">Editar</a>
+        <a ng-click="remove(course)" class="btn btn-danger">Deletar</a>
+      </td>
     </tr>
     </tbody>
 </table>

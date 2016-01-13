@@ -5,9 +5,9 @@
     .controller('CoursesController',CoursesController)
     .controller('CourseNewController',CourseNewController);
 
-  CoursesController.$inject = ['$scope', 'Course'];
+  CoursesController.$inject = ['$scope', 'Course','alert'];
 
-  function CoursesController($scope, Course){
+  function CoursesController($scope, Course,alert){
     $scope.couses = [];
 
     Course.query(function (data) {
@@ -15,16 +15,37 @@
     }, function (err) {
       console.log(err);
     });
+
+    $scope.remove = function(course) {
+      Course.remove({ id: course.id }, function() {
+        $scope.courses.forEach(function(p, index) {
+          if (p.id == course.id) $scope.courses.splice(index, 1);
+        });
+        alert('success', course.name + ' Removido');
+      });
+    }
+
   }
 
-  CourseNewController.$inject = ['$scope', 'Course','$state', 'alert'];
+  CourseNewController.$inject = ['$scope', 'Course','$state','$stateParams', 'alert'];
 
-  function CourseNewController($scope, Course, $state, alert){
-    $scope.course = new Course();;
-    $scope.courses =[];
+  function CourseNewController($scope, Course, $state, $stateParams, alert){
+    $scope.course = new Course();
+    $scope.courses = [];
+
+    if ($stateParams.id) {
+      Course.get({ id: $stateParams.id}, function(data) {
+        $scope.course = data.course;
+      }, function(erro) {
+        console.log(erro);
+      });
+    }
+
     $scope.save = function(course) {
       if ($scope.course.id) {
-        $scope.course.update({id: $scope.course.id}, $scope.course);
+        Course.update({id: $scope.course.id}, $scope.course);
+        $state.go('course-show');
+        alert('success','Curso Atualizado com sucesso');
       } else {
         $scope.course.$save().then(function(response) {
           $scope.courses.push({response});
@@ -32,7 +53,6 @@
           alert('success','Curso adcionado com sucesso');
         });
       }
-      $scope.course = new Course();
     }
 
   }

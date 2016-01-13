@@ -7,7 +7,14 @@ module API
       end
 
       def matriculation
-        @classroom = Classroom.all.map{|a| [a.id, a.student.name, a.course.name, a.entry_at]}
+        @classroom = Classroom.all.map{ |i|
+          {
+            id: i.id,
+            student_name: i.student.name,
+            course_name: i.course.name,
+            entry_at: i.entry_at
+          }
+        }
         render json: @classroom
       end
 

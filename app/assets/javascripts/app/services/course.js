@@ -9,10 +9,13 @@
   function Course($resource, API_KEY) {
 
     var Course = $resource('/api/v1/courses/:id' + API_KEY, {},{
+      'get':  {method:'GET'},
       'query':  {method:'GET'},
       'save':   {method:'POST'},
-      'update': { method: 'PUT'}
+      'update': { method: 'PUT'},
+      'delete': {method:'DELETE'}
     });
+
     return Course;
   }
 

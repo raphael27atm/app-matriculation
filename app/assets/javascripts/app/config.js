@@ -21,13 +21,23 @@
         templateUrl: 'students/new.html',
         controller: 'StudentNewController'
       })
+      .state('course-new',{
+        url: '/courses/new',
+        templateUrl: 'courses/new.html',
+        controller: 'CourseNewController'
+      })
+      .state('student-show',{
+        url: '/students/:id',
+        templateUrl: 'students/new.html',
+        controller: 'StudentNewController'
+      })
       .state('courses',{
         url: '/courses/index',
         templateUrl: 'courses/index.html',
         controller: 'CoursesController'
       })
-      .state('courses-new',{
-        url: '/courses/new',
+      .state('course-show',{
+        url: '/courses/:id',
         templateUrl: 'courses/new.html',
         controller: 'CourseNewController'
       })
@@ -35,6 +45,11 @@
         url: '/classrooms/index',
         templateUrl: 'classrooms/index.html',
         controller: 'RoomsController'
+      })
+      .state('classroom-show',{
+        url: '/classroom/:id',
+        templateUrl: 'classrooms/new.html',
+        controller: 'RoomNewController'
       })
       .state('classroom-new',{
         url: '/classrooms/new',

@@ -7,16 +7,23 @@
       <th>Nome</th>
       <th>Registro</th>
       <th>Cursos Matriculados</th>
-      <!--<th>Status</th>-->
+      <th>Status</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="student in students">
-      <td>{{student.id}}</td>
+      <td>{{$index + 1}}</td>
       <td>{{student.name}}</p></td>
       <td>{{student.register_number}}</td>
-      <td><span class="label label-info" ng-repeat="course in student.courses">{{course.name}}</span></p></td>
-      <!--<td>{{student.status}}</td>-->
+      <td>
+        <span class="label label-info" ng-repeat="course in student.courses">{{course.name}}</span>
+      </td>
+      <td>{{student.status}}</td>
+      <td>
+        <a ui-sref="student-show({id:student.id})" class="btn btn-default">Editar</a>
+        <a ng-click="remove(student)" class="btn btn-danger">Deletar</a>
+      </td>
     </tr>
-    </tbody>
+  </tbody>
 </table>

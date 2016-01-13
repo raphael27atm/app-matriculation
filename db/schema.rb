@@ -24,9 +24,6 @@ ActiveRecord::Schema.define(version: 20160108174536) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "classrooms", ["course_id"], name: "index_classrooms_on_course_id", using: :btree
-  add_index "classrooms", ["student_id"], name: "index_classrooms_on_student_id", using: :btree
-
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -43,4 +40,6 @@ ActiveRecord::Schema.define(version: 20160108174536) do
     t.datetime "updated_at",                  null: false
   end
 
+  add_foreign_key "classrooms", "courses", on_delete: :cascade
+  add_foreign_key "classrooms", "students", on_delete: :cascade
 end

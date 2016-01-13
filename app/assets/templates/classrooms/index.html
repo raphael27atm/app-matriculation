@@ -7,14 +7,19 @@
       <th>Aluno</th>
       <th>Curso</th>
       <th>Data da matricula</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="classroom in classrooms">
-      <td>{{classroom[0]}}</td>
-      <td>{{classroom[1]}}</td>
-      <td>{{classroom[2]}}</td>
-      <td>{{classroom[3] | date:'dd-MM-yyyy' }}</td>
+      <td>{{$index + 1}}</td>
+      <td>{{classroom.student_name}}</td>
+      <td>{{classroom.course_name}}</td>
+      <td>{{classroom.entry_at | date:'dd-MM-yyyy' }}</td>
+      <td>
+        <a ui-sref="classroom-show({id: classroom.id})" class="btn btn-default">Editar</a>
+        <a ng-click="remove(classroom)" class="btn btn-danger">Deletar</a>
+      </td>
     </tr>
     </tbody>
 </table>

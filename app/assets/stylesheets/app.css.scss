@@ -6,3 +6,12 @@
 }
 .ma-top{margin-top: 50px;}
 .label{margin-right: 3px}
+.alert{position: absolute; bottom: 0px; left: 0px; width: 100%; margin:0px;}
+.col-lg-10 > span,.col-md-6 > span {
+    color: red;
+    float: left;
+    font-size: 12px;
+    margin-top: 10px;
+    width: 100%;
+}
+.row{margin-bottom: 10px;}

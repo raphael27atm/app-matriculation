@@ -1,4 +1,6 @@
 <div class="alert alert-dismissible alert-{{alert.type}} animated" ng-class="{'fadeIn': alert.show, 'fadeOut': !alert.show, 'alert-hidden': !alert.hasBeenShown}">
-  <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>{{alert.title}}</strong>
+  <div class="container">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>{{alert.title}}</strong>
+  </div>
 </div>

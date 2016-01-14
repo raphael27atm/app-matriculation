@@ -2,7 +2,7 @@
   visibility: hidden;
 }
 .btn {
-    margin: 0 0 30px;
+    margin: 0 0 20px;
 }
 .ma-top{margin-top: 50px;}
 .label{margin-right: 3px}
@@ -15,3 +15,10 @@
     width: 100%;
 }
 .row{margin-bottom: 10px;}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid #ecf0f1;
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: middle;
+}
+.table .btn{margin:0px;}

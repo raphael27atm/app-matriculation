@@ -31,12 +31,14 @@
   RoomNewController.$inject = ['$scope', 'Classroom','$state', '$stateParams','alert'];
 
   function RoomNewController($scope, Classroom, $state, $stateParams, alert){
+
     $scope.classroom = new Classroom();
     $scope.classrooms = [];
 
     if ($stateParams.id) {
       Classroom.get({ id: $stateParams.id}, function(data) {
-        $scope.classroom = data.classrooms;
+        console.log(data.classroom);
+        $scope.classroom = data.classroom;
       }, function(erro) {
         console.log(erro);
       });

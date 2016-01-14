@@ -5,16 +5,22 @@
     .controller('CoursesController',CoursesController)
     .controller('CourseNewController',CourseNewController);
 
-  CoursesController.$inject = ['$scope', 'Course','alert'];
+  CoursesController.$inject = ['$scope', 'Course','alert', 'STATUS'];
 
-  function CoursesController($scope, Course,alert){
+  function CoursesController($scope, Course,alert, STATUS){
     $scope.couses = [];
+    $scope.statuses = STATUS;
 
     Course.query(function (data) {
       $scope.courses = data.courses;
     }, function (err) {
       console.log(err);
     });
+
+     $scope.changeStatus = function(course){
+      Course.update({id: course.id, status: course.status},  course);
+      alert('success','Status atualizado');
+    }
 
     $scope.remove = function(course) {
       Course.remove({ id: course.id }, function() {

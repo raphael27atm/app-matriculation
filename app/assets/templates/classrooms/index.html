@@ -1,8 +1,8 @@
 <a class="btn btn-success" ui-sref="classroom-new">Criar Matricula</a>
 </br>
-<table class="table">
+<table class="table table-striped table-hover">
   <thead>
-    <tr>
+    <tr class="active">
       <th>#</th>
       <th>Aluno</th>
       <th>Curso</th>
@@ -17,8 +17,8 @@
       <td>{{classroom.course_name}}</td>
       <td>{{classroom.entry_at | date:'dd-MM-yyyy' }}</td>
       <td>
-        <a ui-sref="classroom-show({id: classroom.id})" class="btn btn-default">Editar</a>
-        <a ng-click="remove(classroom)" class="btn btn-danger">Deletar</a>
+        <a ui-sref="classroom-show({id: classroom.id})" class="btn btn-default btn-sm">Editar</a>
+        <a ng-click="remove(classroom)" class="btn btn-danger btn-sm">Deletar</a>
       </td>
     </tr>
     </tbody>

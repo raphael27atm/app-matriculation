@@ -8,7 +8,7 @@
   StudentsController.$inject = ['$scope', 'Student', 'STATUS','alert'];
 
   function StudentsController($scope, Student, STATUS,alert){
-    $scope.status = STATUS;
+    $scope.statuses = STATUS;
     $scope.students = [];
 
     Student.query(function (data) {
@@ -16,6 +16,11 @@
     }, function (err) {
       console.log(err);
     });
+
+    $scope.changeStatus = function(student){
+      Student.update({id: student.id, status: student.status},  student);
+      alert('success','Status atualizado');
+    }
 
     $scope.remove = function(student) {
       Student.remove({ id: student.id }, function() {

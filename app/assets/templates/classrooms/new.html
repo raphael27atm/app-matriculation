@@ -3,7 +3,7 @@
   <fieldset>
     <div class="row">
       <div class="col-md-6">
-        <select id="studant"
+        <select id="studant-m"
           ng-model="classroom.student_id"
           ng-controller="StudentsController"
           ng-options="student.id as student.name for student in students"
@@ -13,7 +13,7 @@
         <span ng-show="form.student.$error.required">Campo obrigatório.</span>
       </div>
       <div class="col-md-6">
-        <select id="course"
+        <select id="course-m"
           ng-model="classroom.course_id"
           ng-controller="CoursesController"
           ng-options="course.id as course.name for course in courses"

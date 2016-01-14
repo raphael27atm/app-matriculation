@@ -13,7 +13,8 @@
       'query':  {method:'GET'},
       'save':   {method:'POST'},
       'update': { method: 'PUT'},
-      'delete': {method:'DELETE'}
+      'delete': {method:'DELETE'},
+      'course_active':{method: 'GET', url: '/api/v1/course_active'+ API_KEY}
     });
 
     return Course;

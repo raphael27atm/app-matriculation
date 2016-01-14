@@ -6,13 +6,13 @@ class Student < ActiveRecord::Base
 
   default_scope -> { order(:created_at => :desc)}
 
+  scope :active,->{where(status: true)}
+
   def create_register_number
     begin
       self.register_number = Time.now.strftime("%Y%m%T").strip().to_s.gsub(/[^\d]/, "")
     end while self.class.exists?(register_number: register_number)
   end
-
-  private
 
   private
 

@@ -4,4 +4,5 @@ class Course < ActiveRecord::Base
 
   validate :name
   default_scope -> { order(:created_at => :desc)}
+  scope :active,->{where(status: true)}
 end

@@ -50815,7 +50815,8 @@ angular.module("app")
   angular
     .module('app')
     .controller('CoursesController',CoursesController)
-    .controller('CourseNewController',CourseNewController);
+    .controller('CourseNewController',CourseNewController)
+    .controller('CourseActiveController',CourseActiveController);
 
   CoursesController.$inject = ['$scope', 'Course','alert', 'STATUS'];
 
@@ -50872,6 +50873,20 @@ angular.module("app")
         });
       }
     }
+
+  }
+
+  CourseActiveController.$inject = ['$scope', 'Course'];
+
+  function CourseActiveController($scope, Course){
+
+    $scope.couses = [];
+
+    Course.course_active(function (data) {
+      $scope.courses = data.courses;
+    }, function (err) {
+      console.log(err);
+    });
 
   }
 
@@ -50958,7 +50973,8 @@ angular.module("app")
   angular
     .module('app')
     .controller('StudentsController',StudentsController)
-    .controller('StudentNewController',StudentNewController);
+    .controller('StudentNewController',StudentNewController)
+    .controller('StudentActiveController',StudentActiveController);
 
   StudentsController.$inject = ['$scope', 'Student', 'STATUS','alert'];
 
@@ -51019,6 +51035,20 @@ angular.module("app")
 
   }
 
+  StudentActiveController.$inject = ['$scope', 'Student',];
+
+  function StudentActiveController($scope, Student){
+
+    $scope.students = [];
+
+    Student.student_active(function (data) {
+      $scope.students = data.students;
+    }, function (err) {
+      console.log(err);
+    });
+
+  }
+
 })();
 (function(){
   'use strict';
@@ -51060,7 +51090,8 @@ angular.module("app")
       'query':  {method:'GET'},
       'save':   {method:'POST'},
       'update': { method: 'PUT'},
-      'delete': {method:'DELETE'}
+      'delete': {method:'DELETE'},
+      'course_active':{method: 'GET', url: '/api/v1/course_active'+ API_KEY}
     });
 
     return Course;
@@ -51117,7 +51148,8 @@ angular.module("app")
       'query':  {method:'GET'},
       'save':   {method:'POST'},
       'update': { method: 'PUT'},
-      'delete': {method:'DELETE'}
+      'delete': {method:'DELETE'},
+      'student_active':{method: 'GET', url: '/api/v1/student_active'+ API_KEY}
     });
 
     return Student;
@@ -51143,7 +51175,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 // source: app/assets/templates/classrooms/new.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("classrooms/new.html", '<h3>Nova Matricula</h3>\n<form class="form-horizontal" name="form" ng-submit="save(classroom)">\n  <fieldset>\n    <div class="row">\n      <div class="col-md-6">\n        <select id="studant-m"\n          ng-model="classroom.student_id"\n          ng-controller="StudentsController"\n          ng-options="student.id as student.name for student in students"\n          class="form-control col-md-6" name="student" required>\n          <option value="">Escolha um Estudante</option>\n        </select>\n        <span ng-show="form.student.$error.required">Campo obrigatório.</span>\n      </div>\n      <div class="col-md-6">\n        <select id="course-m"\n          ng-model="classroom.course_id"\n          ng-controller="CoursesController"\n          ng-options="course.id as course.name for course in courses"\n          class="form-control col-md-6" name="course" required>\n          <option value="">Escolha um Curso</option>\n        </select>\n        <span ng-show="form.course.$error.required">Campo obrigatório.</span>\n      </div>\n    </div>\n    <div class="form-group">\n      <div class="col-lg-10">\n        <button type="submit" class="btn btn-primary" type="submit" ng-disabled="form.$invalid">Salvar</button>\n      </div>\n    </div>\n  </fieldset>\n</form>')
+  $templateCache.put("classrooms/new.html", '<h3>Nova Matricula</h3>\n<form class="form-horizontal" name="form" ng-submit="save(classroom)">\n  <fieldset>\n    <div class="row">\n      <div class="col-md-6">\n        <select id="studant-m"\n          ng-model="classroom.student_id"\n          ng-controller="StudentActiveController"\n          ng-options="student.id as student.name for student in students"\n          class="form-control col-md-6" name="student" required>\n          <option value="">Escolha um Estudante</option>\n        </select>\n        <span ng-show="form.student.$error.required">Campo obrigatório.</span>\n      </div>\n      <div class="col-md-6">\n        <select id="course-m"\n          ng-model="classroom.course_id"\n          ng-controller="CourseActiveController"\n          ng-options="course.id as course.name for course in courses"\n          class="form-control col-md-6" name="course" required>\n          <option value="">Escolha um Curso</option>\n        </select>\n        <span ng-show="form.course.$error.required">Campo obrigatório.</span>\n      </div>\n    </div>\n    <div class="form-group">\n      <div class="col-lg-10">\n        <button type="submit" class="btn btn-primary" type="submit" ng-disabled="form.$invalid">Salvar</button>\n      </div>\n    </div>\n  </fieldset>\n</form>')
 }]);
 
 // Angular Rails Template

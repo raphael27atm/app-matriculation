@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <select id="studant-m"
           ng-model="classroom.student_id"
-          ng-controller="StudentsController"
+          ng-controller="StudentActiveController"
           ng-options="student.id as student.name for student in students"
           class="form-control col-md-6" name="student" required>
           <option value="">Escolha um Estudante</option>
@@ -15,7 +15,7 @@
       <div class="col-md-6">
         <select id="course-m"
           ng-model="classroom.course_id"
-          ng-controller="CoursesController"
+          ng-controller="CourseActiveController"
           ng-options="course.id as course.name for course in courses"
           class="form-control col-md-6" name="course" required>
           <option value="">Escolha um Curso</option>

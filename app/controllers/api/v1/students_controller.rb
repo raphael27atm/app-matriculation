@@ -11,6 +11,11 @@ module API
         render json: @classroom
       end
 
+      def student_active
+        @student = Student.active
+        render json: @student
+      end
+
     end
   end
 end

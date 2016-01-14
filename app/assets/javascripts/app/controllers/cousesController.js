@@ -3,7 +3,8 @@
   angular
     .module('app')
     .controller('CoursesController',CoursesController)
-    .controller('CourseNewController',CourseNewController);
+    .controller('CourseNewController',CourseNewController)
+    .controller('CourseActiveController',CourseActiveController);
 
   CoursesController.$inject = ['$scope', 'Course','alert', 'STATUS'];
 
@@ -60,6 +61,20 @@
         });
       }
     }
+
+  }
+
+  CourseActiveController.$inject = ['$scope', 'Course'];
+
+  function CourseActiveController($scope, Course){
+
+    $scope.couses = [];
+
+    Course.course_active(function (data) {
+      $scope.courses = data.courses;
+    }, function (err) {
+      console.log(err);
+    });
 
   }
 
